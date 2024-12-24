@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Qua dao cute phomaique</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">♡♡♡♡♡♡♡</span><br />
+			<span class="space"/><span class="comments">♡MỘT BỨC THƯ NHO NHỎ</span><br />
+			<span class="space"/><span class="comments">Em nhớ click 2 lần vào màn hình nha !!/</span><br />
+			Hello bạn Bống<br />
+			Chắc em cũng biết hôm nay là ngày gì rồi đúng hông?<br />
+			<span class="comments">Hình như là ngày giáng sinh thì phải. </span><br />
+			Anh có chút lời nhắn nho nhỏ gửi tới bạn nhỏ của anh<br />
+			<span class="comments">Hôm nay chính là giáng sinh đầu tiên mình bên nhau đó :3.</span><br />
+			Mặc dù không được ở bên cạnh em trong ngày này :((<br />
+			Anh có chút lời nhắn gửi tới tình iu của anh hehe;<br />
+			Chúc em một mùa giáng sinh an lành và hạnh phúc;<br />
+			Mong mọi điều tốt đẹp nhất sẽ tới với em;<br />
+			Mong mình được ở bên nhau thật nhiều nhiều ngày giáng sinh nữa;<br />
+			Giáng sinh an lành bạn Bống của anh !!! <br />
+			<span class="comments">♡♡♡♡♡♡♡♡♡.</span><br />
+			À vẫn chưa hết đâu;<br />
+			<br>
+			<br>
+			Anh chỉ muốn nói một lời sau cuối:<br />
+			I lop diu chut chut hehe<br />
+			<br>
+			<br>
+			Em có thể ấn vào hình trái tim để cảm ơn anh nha.<br />
+			<br>
+			<span id="heartspan">
+			<a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
+			</span>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					Đồng hồ tình iu
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					THLOVEYOUSM<br/>
+					<div class="signature">- ♡♡♡</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2023, 14, 20);
+together.setHours(16);
+together.setMinutes(30);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Play Music</title>
+    <style>
+        .hidden-player {
+            display: none;
+        }
+        .play-button {
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="myAudio" class="hidden-player" loop>
+        <!-- Thay đổi đường dẫn file nhạc của bạn vào đây -->
+        <source src="nhac.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button id="playButton" class="play-button">Play</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('myAudio');
+            const playButton = document.getElementById('playButton');
+            
+            // Tự động click nút phát
+            function autoPlay() {
+                playButton.click();
+            }
+            
+            // Xử lý sự kiện click nút
+            playButton.addEventListener('click', function() {
+                audio.play().catch(function(error) {
+                    console.log("Không thể tự động phát nhạc: ", error);
+                });
+            });
+
+            // Tự động phát khi tải trang
+            autoPlay();
+            
+            // Xử lý khi tab ẩn
+            document.addEventListener('visibilitychange', function() {
+                if (document.visibilityState === 'visible') {
+                    audio.play();
+                }
+            });
+            
+            // Thêm sự kiện click vào trang
+            document.addEventListener('click', function() {
+                audio.play();
+            });
+        });
+    </script>
+</body>
+</html>
